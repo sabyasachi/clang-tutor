@@ -10,6 +10,9 @@ on:
 
 jobs:
   build:
+    strategy:
+      matrix:
+        type: [Debug, Release]
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
@@ -29,6 +32,6 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           mkdir build && cd build
-          cmake -DCT_Clang_INSTALL_DIR=/usr/local/opt/llvm/  ../
+          cmake -DCT_Clang_INSTALL_DIR=/usr/local/opt/llvm/ -DCMAKE_BUILD_TYPE=${{ matrix.type }}  ../
           make -j2
           lit test/
