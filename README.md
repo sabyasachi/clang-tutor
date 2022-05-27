@@ -277,7 +277,7 @@ You can test **LACommenter** on the example presented above. Assuming that it
 was saved in `input_file.c`, you can add comments to it as follows:
 
 ```bash
-$Clang_DIR/bin/clang -cc1 -load <build_dir>/lib/libLACommenter.dylib -plugin LAC input_file.cpp
+$Clang_DIR/bin/clang -cc1 -load <build_dir>/lib/libLACommenter.dylib -plugin LAC input_file.c
 ```
 
 ### Run the plugin through `ct-la-commenter`
